@@ -55,3 +55,7 @@ footer p {
 .card {
   cursor: pointer;
 }
+
+.pt-5, .py-5 {
+  padding-top: 1.5rem !important;
+}

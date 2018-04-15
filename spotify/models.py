@@ -29,6 +29,7 @@ class Track(models.Model):
         artist = self.get_artist(the_data)
 
         return {
+            'pk': self.pk,
             'spotifyUrl': 'https://open.spotify.com/track/' + self.spotify_id,
             'spotifyId': self.spotify_id,
             'title': the_data['name'],

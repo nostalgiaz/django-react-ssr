@@ -10,7 +10,7 @@ class TrackForm extends React.Component {
                 'spotifyId': $('#spotifyId').val(),
             },
             success: ((response) => {
-                renderApp(response);
+                this.props.onTracksUpdate(response.tracks);
             })
         });
     }
@@ -24,7 +24,7 @@ class TrackForm extends React.Component {
                     <div className="input-group mb-3">
                         <input id='spotifyId' type="text" className="form-control" placeholder="The new jam URL" />
                         <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button" onClick={this.addTrack}>Add!</button>
+                            <button className="btn btn-outline-secondary" type="button" onClick={this.addTrack.bind(this)}>Add!</button>
                         </div>
                     </div>
                 </div>

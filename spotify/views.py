@@ -47,3 +47,10 @@ def add_track(request):
     Track.objects.create(spotify_id=spotify_id, data=json.dumps(spotify.track(spotify_id)))
 
     return JsonResponse({'tracks': get_tracks()})
+
+
+def delete_track(request):
+    spotify_id = get_spotify_id(request.POST.get('spotifyId'))
+    Track.objects.get(spotify_id=spotify_id).delete()
+
+    return JsonResponse({'tracks': get_tracks()})
