@@ -1,5 +1,7 @@
 import json
+import os
 
+from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
 from react.render import render_component
@@ -21,10 +23,8 @@ def index(request):
     store['props'] = {'tracks': tracks}
 
     rendered = render_component(
-        # TODO WTF? really? go home you're drunk!
-        '/Users/mattialarentis/my_repo/django_react_ssr/spotify/static/js/src/TrackBox.jsx',
+        os.path.join(settings.BASE_DIR, 'spotify/static/js/src/TrackBox.jsx'),
         {'tracks': tracks},
-        # to_static_markup=True,
     )
 
     return render(request, 'index.html', dict(rendered=rendered, store=store))

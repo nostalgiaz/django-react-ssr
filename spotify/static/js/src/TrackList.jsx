@@ -7,7 +7,7 @@ class TrackList extends React.Component {
 			return null;
 		}
 
-		var trackNodes = this.props.tracks.map((track) => {
+		let trackNodes = this.props.tracks.map((track) => {
 			return <Track track={track} key={track.spotifyId} />;
 		});
 
