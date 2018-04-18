@@ -11,6 +11,7 @@ class TrackForm extends React.Component {
             },
             success: ((response) => {
                 this.props.onTracksUpdate(response.tracks);
+                $('#spotifyId').val('');
             })
         });
     }
